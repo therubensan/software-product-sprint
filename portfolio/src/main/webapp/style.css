@@ -1,6 +1,12 @@
-#content {
+#intro {
   margin: 0 auto; 
   text-align: center; 
+  width: 1000px;
+}
+
+#content {
+  margin: 0 auto;  
+  text-align: left; 
   width: 1000px;
 }
 
@@ -8,9 +14,17 @@
   height: 500px;
   width: 500px;  
   border-radius: 50%; 
+  margin-bottom: 10px; 
 }
 
-.about {
+.title {
   font-size: 25px; 
-  font-family: 'Courier New';
+  font-family: 'Courier New', Courier, monospace; 
+  margin-top: 0;
+  margin-bottom: 0; 
+}
+
+.aboutme {
+  font-size: 18px; 
+  font-family: 'Times New Roman', Times, serif; 
 }
