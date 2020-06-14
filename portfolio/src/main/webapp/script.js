@@ -15,17 +15,12 @@
 async function loadComments() {
   const response = await fetch('/data');
   const object = await response.json();
-
   const list = document.getElementById('comments');
-
-  console.log(object[0]);
-  console.log(object[1]);
-  console.log(object[2]);
-
   list.innerHTML = '';
-  list.appendChild(createListElement(object[0]));
-  list.appendChild(createListElement(object[1]));
-  list.appendChild(createListElement(object[2]));
+  var i = 0; 
+  for (i = 0; i < object.length; i++) {
+    list.append(createListElement(object[i]));
+  }
 }
 
 function createListElement(text) {
