@@ -12,8 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-async function getAHello() {
+async function loadComments() {
   const response = await fetch('/data');
-  const hello = await response.text();
-  document.getElementById('hello').innerText = hello;
+  const object = await response.json();
+
+  const list = document.getElementById('comments');
+
+  console.log(object[0]);
+  console.log(object[1]);
+  console.log(object[2]);
+
+  list.innerHTML = '';
+  list.appendChild(createListElement(object[0]));
+  list.appendChild(createListElement(object[1]));
+  list.appendChild(createListElement(object[2]));
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
