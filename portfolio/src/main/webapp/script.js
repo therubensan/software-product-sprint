@@ -16,7 +16,7 @@ async function loadComments() {
   const response = await fetch('/data');
   const object = await response.json();
   const list = document.getElementById('comments');
-  list.innerHTML = '';
+  list.innerHTML = " ";
   var i = 0; 
   for (i = 0; i < object.length; i++) {
     list.append(createListElement(object[i]));
