@@ -28,3 +28,9 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
+
+async function getLoginStatus() {
+  const response = await fetch('/login');
+  const status = await response.text();
+  document.getElementById('login').innerText = status;
+} 
