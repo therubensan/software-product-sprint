@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
   </head>
-  <body onload="loadComments()">
+  <body onload="loadCommentSection()">
     <div id="intro">  
       <img src="images/me.jpg" alt="Ruben Sanchez circa December 2019" class="portrait">
       <p class="title">Ruben Sanchez</p>
@@ -64,14 +64,9 @@
           many more photos but don't want to overfill the portfolio. 
       </p>
       <h1>Comments</h1>
-      <form action="/data" method="POST">
-      <p>Share Your Comments Here:</p>
-      <input type="text" name="new-comment">
-      <input type="submit" />
-      </form>
+      <div id="comments-form">
+      </div>
       <ul id="comments"></ul>
-      <button onclick="getLoginStatus()">Get login status.</button>
-      <h1 id="login"></h1>
     </div>
   </body>
 </html>

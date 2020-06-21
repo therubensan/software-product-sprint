@@ -22,6 +22,7 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
+import java.io.PrintWriter;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,11 +37,17 @@ public class UserServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
     UserService userService = UserServiceFactory.getUserService();
     if (userService.isUserLoggedIn()) {
-        response.getWriter().println("I am logged in.");
+      out.println("<form method=\"POST\" action=\"/data\">");
+      out.println("<p>Share Your Comments Here:</p>");
+      out.println("<input type=\"text\" name=\"new-comment\">");
+      out.println("<input type=\"submit\" />");
+      out.println("</form>");
     } else {
-        response.getWriter().println("I am not logged in.");
+      String loginUrl = userService.createLoginURL("/");
+      out.println("<p><a href=\"" + loginUrl + "\">Login</a> to add a comment.</p>");
     }
   }
 }

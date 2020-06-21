@@ -12,9 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-async function loadComments() {
-  const response = await fetch('/data');
-  const object = await response.json();
+async function loadCommentSection() {
+  // Check login status
+  const loginResponse = await fetch('/login');
+  const text = await loginResponse.text();
+  document.getElementById('comments-form').innerHTML = text;
+  // Add comments to list
+  const dataResponse = await fetch('/data');
+  const object = await dataResponse.json();
   const list = document.getElementById('comments');
   list.innerHTML = " ";
   var i = 0; 
@@ -28,9 +33,3 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
-
-async function getLoginStatus() {
-  const response = await fetch('/login');
-  const status = await response.text();
-  document.getElementById('login').innerText = status;
-} 
