@@ -23,8 +23,10 @@ async function loadCommentSection() {
   const list = document.getElementById('comments');
   list.innerHTML = " ";
   var i = 0; 
-  for (i = 0; i < object.length; i++) {
-    list.append(createListElement(object[i]));
+  for (i = 0; i < object.length; i += 2) {
+    list.append(object[i]);
+    list.append(createListElement(object[i + 1]));
+    list.append(document.createElement("br"));
   }
 }
 

@@ -46,7 +46,7 @@ public class UserServlet extends HttpServlet {
       out.println("<input type=\"submit\" />");
       out.println("</form>");
     } else {
-      String loginUrl = userService.createLoginURL("/");
+      String loginUrl = userService.createLoginURL("/index.html");
       out.println("<p><a href=\"" + loginUrl + "\">Login</a> to add a comment.</p>");
     }
   }

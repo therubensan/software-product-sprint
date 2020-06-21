@@ -20,6 +20,8 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +42,8 @@ public class DataServlet extends HttpServlet {
     ArrayList<String> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       String comment = (String) entity.getProperty("comment");
+      String email = (String) entity.getProperty("email");
+      comments.add(email);
       comments.add(comment);
     }
     String json = convertToJsonUsingGson(comments);
@@ -49,11 +53,14 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    UserService userService = UserServiceFactory.getUserService();
+    String email = userService.getCurrentUser().getEmail();
     String comment = request.getParameter("new-comment");
     long timestamp = System.currentTimeMillis();
     if (!comment.isEmpty()) {
       Entity commentEntity = new Entity("Comment");
       commentEntity.setProperty("comment", comment); 
+      commentEntity.setProperty("email", email);
       commentEntity.setProperty("timestamp", timestamp);
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(commentEntity);
