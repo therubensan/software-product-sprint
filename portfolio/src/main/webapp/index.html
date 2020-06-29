@@ -2,17 +2,71 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Ruben Sanchez</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="loadCommentSection()">
+    <div id="intro">  
+      <img src="images/me.jpg" alt="Ruben Sanchez circa December 2019" class="portrait">
+      <p class="title">Ruben Sanchez</p>
+      <p class="title">Stanford University | Class of 2022</p>
+      <p class="title">B.S | Computer Science, Systems</p>
+      <a href="linkedin.com/in/therubensan/" class="fa fa-linkedin"></a>
+      <a href="github.com/therubensan" class="fa fa-github"></a>
+    <div>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+      <h1>About Me</h1>
+      <p class="aboutme">Welcome to my portfolio. My name is Ruben Sanchez. I am 20 years
+          old and currently living in Anaheim, California. I have three siblings
+          and two parents that I love. Lastly, I am a sophomore studying computer
+          science with a concentration in systems at Stanford University.
+          <br><br>
+          I owe a lot of my success to my friends and family who have shown constant support
+          in my struggles and triumphs. One aspect of my life that I thank them a lot for is 
+          convincing me to pursue computer science as a major. I entered as a mathematics major 
+          and had a lot of doubts about how it could translate to tangible success or interests
+          in the future. I thought a lot about switching to an engineering major and ultimately
+          decided on computer science. I'm glad I did. 
+          <br><br>
+          Aside from computer science, I find interest in eSports, cooking, and guacamole. Fun
+          fact: I won Stanford's Annual Cooking Competition in my freshman year.  
+      </p>
+      <h1>Projects</h1>
+      <p class="aboutme">Below, you will find a list of projects I have worked
+          on as coursework and self projects.  
+      </p>
+      <dl class="aboutme">  
+        <dt>Pintos Operating System</dt>
+          <dd>Built a simple operating system framework for the 80x86 architecture. Supports kernel
+              threads, running and loading user programs, a file system, and virtual memory management. 
+              Designed and implemented in C.
+          </dd>
+        <dt>Heap Allocator</dt>
+          <dd>Built a dynamic memory allocator utilizing a doubly-linked segregated free list 
+              with coalescing. Designed and implemented in C.</dd>
+        <dt>Landscape & Maintenance Simple CRM</dt>
+          <dd>Built a web-application designed to streamline check payment processes and manage client 
+              data in specific consideration to the landscape & maintenance industry. Inspired by 
+              my own family landscaping business and implemented with HTML, Javascript, PHP, and MySQL.</dd>
+      </dl>
+      <h1>Photo Gallery</h1>
+      <div id="gallery">
+        <img src="images/family.jpg" alt="Ruben's Family" class="photo">
+        <img src="images/cooking.jpg" alt="Ruben cooking at Stanford's Annual Competition" class="photo">
+        <img src="images/dish.jpg" alt="Ruben's winning dish" class="photo">
+        <img src="images/niece.JPG" alt="Ruben's niece" class="photo">
+        <img src="images/ace.jpeg" alt="Ruben's dog" class="photo">
+        <img src="images/bestfriend.jpg" alt="Ruben's bestfriend" class="photo">
+      </div>
+      <p class="aboutme">I chose photos of lovely people and fond memories. I would prefer to share
+          many more photos but don't want to overfill the portfolio. 
+      </p>
+      <h1>Comments</h1>
+      <div id="comments-form">
+      </div>
+      <ul id="comments"></ul>
     </div>
   </body>
 </html>
