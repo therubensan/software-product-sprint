@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/random-quote")
 public final class RandomQuoteServlet extends HttpServlet {
 
-  private List<Strintg> quotes;
+  private List<String> quotes;
 
   @Override
   public void init() {
